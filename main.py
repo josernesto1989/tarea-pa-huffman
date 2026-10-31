@@ -1,5 +1,6 @@
 
 import os
+import time
 from huffman import CompresorHuffman
 import argparse
 
@@ -27,12 +28,19 @@ def main():
     
     if args.comprimir:
         origen, destino = args.comprimir
+        inicio = time.perf_counter()
         compresor = CompresorHuffman(origen)
-        compresor.comprimir( destino)
+        compresor.comprimir(destino)
+        tiempo_transcurrido = time.perf_counter() - inicio
+        print(f"Tiempo de compresión en Python: {tiempo_transcurrido:.6f} segundos")
     elif args.descomprimir:
         origen, destino = args.descomprimir
         descomprimir = CompresorHuffman()
+        inicio = time.perf_counter()
         descomprimir.descomprimir(origen, destino)
+        tiempo_transcurrido = time.perf_counter() - inicio
+        print(f"Tiempo de descompresión en Python: {tiempo_transcurrido:.6f} segundos")
+        
 
 # Ejemplo de uso:
 if __name__ == "__main__":

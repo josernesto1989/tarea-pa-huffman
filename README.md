@@ -17,16 +17,22 @@ Este proyecto implementa una versión básica del algoritmo de Huffman para:
 ```text
 .
 ├── main.py
+├── main.pyx
 ├── requirements.txt
 ├── huffman/
 │   ├── __init__.py
+│   ├── CNodoHuffman.pyx
+│   ├── CompresorHuffman.pyx
 │   └── NodoHuffman.py
 └── README.md
 ```
 
 ## Archivos importantes
 
-- `huffman/NodoHuffman.py`: define la estructura del nodo usado por el árbol de Huffman.
+- `huffman/CNodoHuffman.pyx`: define en Cython la estructura del nodo usado por el árbol de Huffman.
+- `huffman/CompresorHuffman.pyx`: implementa en Cython la compresión y descompresión Huffman.
+- `main.pyx`: versión Cython de la interfaz de línea de comandos.
+- `huffman/CNodoHuffman.py`: fallback compatible para ejecutar sin compilar la extensión.
 - `main.py`: contiene la lógica principal del compresor y la ejecución de ejemplo.
 
 ## Requisitos
@@ -36,6 +42,12 @@ Este proyecto implementa una versión básica del algoritmo de Huffman para:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Para compilar la extensión Cython en el directorio del proyecto:
+
+```bash
+python setup.py build_ext --inplace
 ```
 
 ## Ejecución
