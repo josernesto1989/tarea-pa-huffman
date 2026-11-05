@@ -2,6 +2,17 @@
 
 Proyecto de compresión y descompresión de texto UTF-8 utilizando el algoritmo de Huffman.
 
+## Tiempos de ejecución
+
+  ### Python
+  ![Texto alternativo](./python.png)
+
+  ### Cython
+  ![Texto alternativo](./cython.png)
+
+
+
+
 ## Descripción
 
 Este proyecto implementa una versión básica del algoritmo de Huffman para:
